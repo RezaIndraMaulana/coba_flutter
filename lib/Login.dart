@@ -2,6 +2,7 @@ import 'package:coba_flutter/Register.dart';
 import 'package:flutter/material.dart';
 import 'Home.dart';
 import 'Register.dart';
+import 'ListAllSport.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -28,11 +29,11 @@ class _LoginState extends State<Login> {
             ),
             Text(
               "Welcome Back",
-              style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
             Text(
               "Sign on continue",
-              style: TextStyle(fontSize: 20,color: Colors.grey),
+              style: TextStyle(fontSize: 15,color: Colors.grey),
             ),
             SizedBox(
               height: 40,
@@ -58,7 +59,7 @@ class _LoginState extends State<Login> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Theme(
+                child: Theme(
                 data: Theme.of(context).copyWith(colorScheme: ThemeData().colorScheme.copyWith(primary: Colors.green)),
                 child: TextFormField(
                   controller: ctlpassword,
@@ -123,7 +124,7 @@ class _LoginState extends State<Login> {
 
   void Onlogin() {
     if (ctlusername.text == "admin" && ctlpassword.text == "admin") {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => ListAllSport()));
     }
   }
 }

@@ -5,6 +5,8 @@ import 'Login.dart'
 class Register extends StatelessWidget {
   const Register({Key? key}) : super(key: key);
 
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +24,7 @@ class Register extends StatelessWidget {
                   },
                   child: Icon(
                     Icons.arrow_back_sharp,
-                    size: 50,
+                    size: 35,
                     color: Colors.green,
                   ),
                 ),
@@ -143,13 +145,20 @@ class Register extends StatelessWidget {
               SizedBox(
                 height: 25,
               ),
-              RichText(
-                  text: TextSpan(children: [
-                TextSpan(
-                    text: "Already have a accounnt?",
-                    style: TextStyle(color: Colors.black)),
-                TextSpan(text: " Login", style: TextStyle(color: Colors.green))
-              ]))
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => Login(),));
+                },
+                child: RichText(
+                    text: TextSpan(children: [
+                  TextSpan(
+                      text: "Already have a accounnt?",
+                      style: TextStyle(color: Colors.black)),
+                  TextSpan(
+                      text: " Login",
+                      style: TextStyle(color: Colors.green))
+                ])),
+              )
             ],
           ),
         ),
