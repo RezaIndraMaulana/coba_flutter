@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'AllSportsModel.dart';
 import 'dart:convert';
+import 'DetailSport.dart';
 import 'package:http/http.dart' as http;
 
 class ListAllSport extends StatefulWidget {
@@ -38,7 +39,9 @@ class _ListAllSportState extends State<ListAllSport> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey,
       appBar: AppBar(
+        backgroundColor: Colors.green,
         title: Text("List All Sport"),
       ),
       body: Center(
@@ -47,21 +50,31 @@ class _ListAllSportState extends State<ListAllSport> {
               itemCount: allSportsModel!.sports!.length,
               itemBuilder: (BuildContext context, int index) {
                 return InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => DetailSport(strSportThumb: allSportsModel!.sports![index].strSportThumb.toString(), strSport: allSportsModel!.sports![index].strSport.toString(), strSportDescription: allSportsModel!.sports![index].strSportDescription.toString(),))
+                    );
+                  },
                   child: Card(
                     child: Container(
                       margin: EdgeInsets.all(15),
                       child: Row(
                         children: [
-                          Container(
-                            margin: EdgeInsets.only(right: 20),
-                            width: 20,
-                            height: 20,
-                            child: Icon(Icons.people)),
+                          Container( width: 120, height: 50, decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: NetworkImage(
+                                  allSportsModel!.sports![index].strSportThumb.toString()
+                              )
+                            ),
+                            borderRadius: BorderRadius.all(Radius.circular(10))
+                          ),),
+                          SizedBox(width: 15,),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(allSportsModel!.sports![index].strSport.toString()),
+                              SizedBox(width: 10,),
                               Text(allSportsModel!.sports![index].strFormat.toString()),
                             ],
                           )
