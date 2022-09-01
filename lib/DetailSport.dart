@@ -20,15 +20,19 @@ class _DetailSportState extends State<DetailSport> {
         title: Text("Detail Sport"),
       ),
       body: Center(
-        child: Card(
-          child: Container(
-            margin: EdgeInsets.all(15),
-            child: Column(
-              children: [
-                Image.network(widget.strSportThumb),
-                Text(widget.strSport),
-                Text(widget.strSportDescription),
-              ],
+        child: SingleChildScrollView(
+          child: Card(
+            child: Container(
+              margin: EdgeInsets.all(15),
+              child: Column(
+                children: [
+                  Image.network(widget.strSportThumb),
+                  Text(widget.strSport, style: TextStyle(
+                    fontWeight: FontWeight.bold
+                  ),),
+                  Text(widget.strSportDescription),
+                ],
+              ),
             ),
           ),
         ),

@@ -73,7 +73,9 @@ class _ListAllSportState extends State<ListAllSport> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(allSportsModel!.sports![index].strSport.toString()),
+                              Text(allSportsModel!.sports![index].strSport.toString(),style: TextStyle(
+                                fontWeight: FontWeight.bold
+                              ),),
                               SizedBox(width: 10,),
                               Text(allSportsModel!.sports![index].strFormat.toString()),
                             ],
